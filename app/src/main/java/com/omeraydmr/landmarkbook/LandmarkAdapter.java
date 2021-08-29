@@ -1,5 +1,7 @@
 package com.omeraydmr.landmarkbook;
 
+import android.content.Intent;
+import android.location.GnssAntennaInfo;
 import android.renderscript.ScriptGroup;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,8 +31,19 @@ public class LandmarkAdapter extends RecyclerView.Adapter<LandmarkAdapter.Landma
     }
 
     @Override
-    public void onBindViewHolder(@NonNull LandmarkHolder holder, int position) {
+    public void onBindViewHolder(@NonNull LandmarkAdapter.LandmarkHolder holder, int position) {
         holder.binding.recyclerViewTextView.setText(landmarkArrayList.get(position).name);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(holder.itemView.getContext(),DetailsActivity.class);
+                //intent.putExtra("landmark", landmarkArrayList.get(position));
+                Singleton singleton = Singleton.getInstance();
+                singleton.setSentLandmark(landmarkArrayList.get(position));
+                holder.itemView.getContext().startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-import com.omeraydmr.landmarkbook.databinding.ActivityDetailsBinding;
 import com.omeraydmr.landmarkbook.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Landmark> landmarkArrayList;
     private ActivityMainBinding binding;
+    static Landmark chosenLandmark;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
