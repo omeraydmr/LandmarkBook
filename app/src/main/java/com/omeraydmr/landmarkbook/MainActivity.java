@@ -2,6 +2,7 @@ package com.omeraydmr.landmarkbook;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.os.Build;
@@ -44,6 +45,12 @@ public class MainActivity extends AppCompatActivity {
         landmarkArrayList.add(haydarpasa);
         landmarkArrayList.add(saracoglu);
 
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        LandmarkAdapter landmarkAdapter = new LandmarkAdapter(landmarkArrayList);
+        binding.recyclerView.setAdapter(landmarkAdapter);
+
+
+        /*
         //Adapter
             //ListView
                 //Mapping
@@ -61,6 +68,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        */
+
 
     }
 }
